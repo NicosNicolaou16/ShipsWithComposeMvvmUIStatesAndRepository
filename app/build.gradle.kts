@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.5"
     }
     packaging {
         resources {
@@ -57,20 +57,20 @@ val appCompatVersion by extra("1.6.1")
 val coreKtxVersion by extra("1.12.0")
 val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.6.2")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.8.0")
+val activityVersion by extra("1.8.1")
 val fragmentVersion by extra("1.6.2")
 val retrofitVersion by extra("2.9.0")
 val okHttpVersion by extra("4.12.0")
-val roomVersion by extra("2.6.0")
+val roomVersion by extra("2.6.1")
 val daggerVersion by extra("2.15")
 val coroutineVersion by extra("1.7.3")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.10.0")
 val coilVersion by extra("2.5.0")
-val hiltVersion by extra("2.48.1")
+val hiltVersion by extra("2.49")
 val hiltCompilerVersion by extra("1.1.0")
 val composeCompilerVersion by extra("1.5.4")
-val composeVersion by extra("1.5.4")
+val composeVersion by extra("1.5.5")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
@@ -109,6 +109,10 @@ dependencies {
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
     //Multidex
     implementation("androidx.multidex:multidex:$multidexVersion")
+    //Testing
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
@@ -117,11 +121,11 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.activity:activity-compose:$activityVersion")
+    implementation("androidx.navigation:navigation-compose:$composeNavigationVersion")
+    implementation("androidx.hilt:hilt-navigation-compose:$composeHiltNavigationVersion")
 }
