@@ -26,7 +26,7 @@ class ShipsViewModel @Inject constructor(
 
     init {
         requestForShipsData()
-        //offline()
+        offline()
     }
 
     private fun requestForShipsData() = viewModelScope.launch {
