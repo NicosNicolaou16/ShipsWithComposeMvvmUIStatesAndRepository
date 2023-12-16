@@ -22,7 +22,7 @@ https://developer.android.com/topic/architecture/ui-layer/state-production <br /
 https://github.com/android/architecture-samples <br />
 https://github.com/android/sunflower <br />
 
-# Feeds/Urls/End Point (parsing some data from response)
+# Feeds/Urls/End Point (parsing some data from the response)
 ## (Links References for Ends Points)
 https://github.com/r-spacex/SpaceX-API (GitHub) <br />
 https://docs.spacexdata.com/?version=latest (Postman) <br />
