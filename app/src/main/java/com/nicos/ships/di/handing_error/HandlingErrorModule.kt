@@ -1,7 +1,7 @@
 package com.nicos.ships.di.handing_error
 
 import android.content.Context
-import com.nicos.ships.utils.base_classes.HandlingError
+import com.nicos.ships.utils.generic_classes.HandlingError
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.nicos.ships.utils.base_classes
+package com.nicos.ships.utils.generic_classes
 
 import android.content.Context
 import com.nicos.ships.R
