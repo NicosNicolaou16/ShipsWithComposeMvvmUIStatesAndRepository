@@ -1,5 +1,5 @@
 # Ships With Compose Mvvm UI States and Repository
-The project is a test project that implements and test JetPack Compose with UI States, Hilt and Room Database
+The project is a test project that implements and test JetPack Compose with UI States, Hilt and Room Database.
 
 # This Project contains:
 Compose <br />
