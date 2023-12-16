@@ -15,6 +15,13 @@ Repository <br />
 UI States <br />
 Offline <br />
 
+## Tutorials
+https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
+https://github.com/philipplackner/WeatherApp <br />
+https://developer.android.com/topic/architecture/ui-layer/state-production <br />
+https://github.com/android/architecture-samples <br />
+https://github.com/android/sunflower <br />
+
 # Feeds/Urls/End Point (parsing some data from response)
 ## (Links References for Ends Points)
 https://github.com/r-spacex/SpaceX-API (GitHub) <br />
