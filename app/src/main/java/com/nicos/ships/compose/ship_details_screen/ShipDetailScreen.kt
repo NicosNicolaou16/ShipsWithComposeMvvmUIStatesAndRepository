@@ -47,6 +47,7 @@ internal fun ShipDetailsScreen(
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
+        backgroundColor = Color.Gray,
         topBar = {
             CustomToolbar(shipDetailsState.shipModel?.ship_name ?: "")
         },

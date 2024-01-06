@@ -39,6 +39,7 @@ internal fun ShipsScreen(navController: NavController) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     Scaffold(
         scaffoldState = scaffoldState,
+        backgroundColor = Color.Gray,
         topBar = {
             CustomToolbar(R.string.list_of_ships)
         },
