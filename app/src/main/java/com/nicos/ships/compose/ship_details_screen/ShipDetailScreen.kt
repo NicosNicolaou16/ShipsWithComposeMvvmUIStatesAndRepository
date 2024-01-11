@@ -11,7 +11,6 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,9 +27,9 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Scale
 import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.CustomToolbar
+import com.nicos.ships.R
 import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
-import com.nicos.ships.R
 import com.nicos.ships.data.room_database.ships.ShipsModel
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
@@ -52,9 +51,7 @@ internal fun ShipDetailsScreen(
             CustomToolbar(shipDetailsState.shipModel?.ship_name ?: "")
         },
         content = { paddingValue ->
-            //val isLoading = shipDetailsViewModel.loading.observeAsState(initial = false).value
             if (shipDetailsState.isLoading) StartDefaultLoader()
-            //val error = shipDetailsViewModel.error.observeAsState(initial = null).value
             if (shipDetailsState.error != null) ShowDialog(
                 title = shipDetailsState.error,
                 message = ""
