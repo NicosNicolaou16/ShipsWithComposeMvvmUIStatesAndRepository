@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion = "1.5.9"
     }
     packaging {
         resources {
@@ -63,18 +63,18 @@ val retrofitVersion by extra("2.9.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
 val daggerVersion by extra("2.15")
-val coroutineVersion by extra("1.7.3")
+val coroutineVersion by extra("1.8.0")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.11.0")
 val coilVersion by extra("2.5.0")
 val hiltVersion by extra("2.50")
 val hiltCompilerVersion by extra("1.1.0")
-val composeCompilerVersion by extra("1.5.8")
+val composeCompilerVersion by extra("1.5.9")
 val composeVersion by extra("1.5.6")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
-val composeNavigationVersion by extra("2.7.6")
+val composeNavigationVersion by extra("2.7.7")
 val composeHiltNavigationVersion by extra("1.1.0")
 
 dependencies {
@@ -116,7 +116,7 @@ dependencies {
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    implementation(platform("androidx.compose:compose-bom:2024.01.00"))
+    implementation(platform("androidx.compose:compose-bom:2024.02.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.runtime:runtime")
@@ -126,7 +126,7 @@ dependencies {
     implementation("androidx.activity:activity-compose")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.01.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
