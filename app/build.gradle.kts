@@ -67,15 +67,15 @@ val coroutineVersion by extra("1.8.0")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.11.0")
 val coilVersion by extra("2.6.0")
-val hiltVersion by extra("2.50")
-val hiltCompilerVersion by extra("1.1.0")
+val hiltVersion by extra("2.51")
+val hiltCompilerVersion by extra("1.2.0")
 val composeCompilerVersion by extra("1.5.10")
 val composeVersion by extra("1.5.6")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
 val composeNavigationVersion by extra("2.7.7")
-val composeHiltNavigationVersion by extra("1.1.0")
+val composeHiltNavigationVersion by extra("1.2.0")
 
 dependencies {
 
