@@ -44,7 +44,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+        kotlinCompilerExtensionVersion = "1.5.12"
     }
     packaging {
         resources {
@@ -54,10 +54,10 @@ android {
 }
 
 val appCompatVersion by extra("1.6.1")
-val coreKtxVersion by extra("1.12.0")
+val coreKtxVersion by extra("1.13.0")
 val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.7.0")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.8.2")
+val activityVersion by extra("1.9.0")
 val fragmentVersion by extra("1.6.2")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
@@ -116,7 +116,7 @@ dependencies {
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    implementation(platform("androidx.compose:compose-bom:2024.04.00"))
+    implementation(platform("androidx.compose:compose-bom:2024.04.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.runtime:runtime")
@@ -126,7 +126,7 @@ dependencies {
     implementation("androidx.activity:activity-compose")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
