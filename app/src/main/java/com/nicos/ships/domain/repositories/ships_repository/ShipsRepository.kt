@@ -20,7 +20,7 @@ class ShipsRepository @Inject constructor(
             saveShipDataIntoDatabase(shipsList)
             Resource.Success(shipsList)
         } catch (e: Exception) {
-            Resource.Error(e.message ?: "")
+            Resource.Error(message = handlingError.handleErrorMessage(e))
         }
     }
 
