@@ -1,9 +1,11 @@
 # Ships With Compose Mvvm UI States and Repository
 The project is a test project that implements and test JetPack Compose with UI States, Hilt and Room Database.
+This project is an application that applied some of the latest Google technologies for Android such as Jetpack Compose, Hilt Dependencies Injection
+and Room Database
 
 # This Project contains:
 Compose <br />
-Hilt <br />
+Hilt Dependencies Injection <br />
 Room Database <br />
 Coroutines <br />
 Kotlin ktx <br />
