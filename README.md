@@ -1,6 +1,6 @@
 # Ships With Compose Mvvm UI States and Repository
 This project is an application that applied some of the latest Google technologies for Android such as Jetpack Compose, Hilt Dependencies Injection
-and Room Database
+and Room Database.
 
 # This Project contains:
 Compose <br />
