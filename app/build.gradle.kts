@@ -55,10 +55,10 @@ android {
 
 val appCompatVersion by extra("1.6.1")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.7.0")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.0")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.9.0")
-val fragmentVersion by extra("1.7.0")
+val fragmentVersion by extra("1.7.1")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
