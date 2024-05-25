@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
@@ -43,8 +44,9 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+    composeCompiler {
+        enableStrongSkippingMode = true
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
         resources {
@@ -69,7 +71,6 @@ val materialDesignVersion by extra("1.12.0")
 val coilVersion by extra("2.6.0")
 val hiltVersion by extra("2.51.1")
 val hiltCompilerVersion by extra("1.2.0")
-val composeCompilerVersion by extra("1.5.11")
 val composeVersion by extra("1.5.6")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
