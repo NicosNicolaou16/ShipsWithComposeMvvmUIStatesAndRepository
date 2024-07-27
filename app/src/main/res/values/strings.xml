@@ -6,4 +6,7 @@
     <string name="list_of_ships">List of Ships</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>
+    <string name="is_active">Is Active\n</string>
+    <string name="ship_type">"Ship Type: "</string>
+    <string name="ship_name">"Ship Name: "</string>
 </resources>
