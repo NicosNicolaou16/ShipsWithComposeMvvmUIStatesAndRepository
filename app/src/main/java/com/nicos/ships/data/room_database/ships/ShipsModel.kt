@@ -3,6 +3,7 @@ package com.nicos.ships.data.room_database.ships
 import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
+import com.nicos.ships.data.room_database.type_converter.ConverterMission
 import com.nicos.ships.data.room_database.type_converter.ConverterPosition
 import kotlinx.coroutines.flow.flow
 
@@ -29,11 +30,35 @@ data class ShipsModel(
     var positionId: Long,
     var successful_landings: Int?,
     var attempted_landings: Int?,
+    @TypeConverters(ConverterMission::class)
+    var missions: MutableList<MissionsModel>,
     var url: String?,
     var image: String?,
 ) {
 
-    constructor() : this("",  null,null,  null,  null,null,  null,null,  null,null,  null,null,  null,null,  PositionModel(),-1,  null,null, null, null)
+    constructor() : this(
+        "",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        PositionModel(),
+        -1,
+        null,
+        null,
+        mutableListOf(),
+        null,
+        null
+    )
 
     companion object {
         suspend fun insertTheShips(
@@ -60,6 +85,7 @@ data class ShipsModel(
                 myRoomDatabase.positionDao().deleteAll()
                 shipsModelList.forEach { ship ->
                     savePosition(ship, myRoomDatabase)
+                    saveMissions(ship, myRoomDatabase)
                     shipsModelListSaved.add(ship) //add the ship data into list to insert into the database
                 }
                 emit(shipsModelListSaved)
@@ -73,6 +99,14 @@ data class ShipsModel(
                 ship.positionId =
                     it.position_id //get the position_id from PositionModel and assign to positionId (ShipModel)
             }
+        }
+
+        private suspend fun saveMissions(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
+            MissionsModel.insertTheMissions(
+                ship.missions,
+                ship.ship_id,
+                myRoomDatabase
+            ) //insert missions list object
         }
     }
 }

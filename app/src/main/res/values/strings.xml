@@ -9,4 +9,5 @@
     <string name="is_active">Is Active\n</string>
     <string name="ship_type">"Ship Type: "</string>
     <string name="ship_name">"Ship Name: "</string>
+    <string name="missions">Missions</string>
 </resources>

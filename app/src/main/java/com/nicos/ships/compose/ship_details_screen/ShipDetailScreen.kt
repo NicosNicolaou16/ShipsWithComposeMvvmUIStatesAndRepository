@@ -80,8 +80,8 @@ private fun ShipDetailsView(
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
-    Box(contentAlignment = Alignment.TopCenter) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Box(contentAlignment = Alignment.TopStart) {
+        Column(horizontalAlignment = Alignment.Start) {
             AsyncImage(
                 model = ImageRequest.Builder(context = context).apply {
                     data(shipData?.image)
@@ -99,6 +99,8 @@ private fun ShipDetailsView(
                     .height(height = 300.dp)
             )
             BasicInfo(shipData)
+            HorizontalRolesAndMissionsList(shipData?.missions?.map { it.name ?: "" }
+                ?.toMutableList() ?: mutableListOf())
         }
     }
 }
@@ -112,7 +114,7 @@ private fun BasicInfo(shipData: ShipsModel?) {
             .padding(9.dp)
     ) {
         Column(horizontalAlignment = Alignment.Start) {
-            androidx.compose.material.Text(
+            Text(
                 text = stringResource(R.string.ship_name) + shipData?.ship_name,
                 modifier = Modifier.width(width = 300.dp),
                 maxLines = 2,
@@ -124,7 +126,7 @@ private fun BasicInfo(shipData: ShipsModel?) {
                 ),
                 color = Color.White,
             )
-            androidx.compose.material.Text(
+            Text(
                 text = stringResource(R.string.ship_type) + shipData?.ship_type,
                 style = TextStyle(
                     fontSize = 21.sp,
@@ -138,7 +140,7 @@ private fun BasicInfo(shipData: ShipsModel?) {
             verticalArrangement = Arrangement.spacedBy(3.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            androidx.compose.material.Text(
+            Text(
                 text = stringResource(R.string.is_active),
                 style = TextStyle(
                     fontSize = 21.sp,
@@ -153,6 +155,44 @@ private fun BasicInfo(shipData: ShipsModel?) {
                     .clip(shape = CircleShape)
                     .background(if (shipData?.active == true) Color.Green else Color.Red)
             )
+        }
+    }
+}
+
+@Composable
+private fun HorizontalRolesAndMissionsList(values: MutableList<String>) {
+    Column(horizontalAlignment = Alignment.Start) {
+        Box(modifier = Modifier.padding(11.dp)) {
+            Text(
+                text = stringResource(R.string.missions),
+                style = TextStyle(
+                    fontSize = 21.sp,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold
+                ),
+            )
+        }
+        LazyRow {
+            items(values) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .padding(11.dp)
+                        .clip(shape = RoundedCornerShape(9.dp))
+                        .background(color = Color.DarkGray)
+                        .size(100.dp),
+                ) {
+                    Text(
+                        text = it,
+                        style = TextStyle(
+                            fontSize = 21.sp,
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.Gray,
+                    )
+                }
+            }
         }
     }
 }
