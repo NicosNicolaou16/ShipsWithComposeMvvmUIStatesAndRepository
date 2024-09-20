@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.20"
 }
 
 android {
@@ -45,7 +45,6 @@ android {
         compose = true
     }
     composeCompiler {
-        enableStrongSkippingMode = true
         reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
@@ -57,15 +56,15 @@ android {
 
 val appCompatVersion by extra("1.7.0")
 val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.4")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.6")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.9.1")
-val fragmentVersion by extra("1.8.2")
+val activityVersion by extra("1.9.2")
+val fragmentVersion by extra("1.8.3")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
 val daggerVersion by extra("2.15")
-val coroutineVersion by extra("1.8.1")
+val coroutineVersion by extra("1.9.0")
 val multidexVersion by extra("2.0.1")
 val materialDesignVersion by extra("1.12.0")
 val coilVersion by extra("2.7.0")
@@ -75,7 +74,7 @@ val composeVersion by extra("1.5.6")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
-val composeNavigationVersion by extra("2.7.7")
+val composeNavigationVersion by extra("2.8.1")
 val composeHiltNavigationVersion by extra("1.2.0")
 
 dependencies {
@@ -117,7 +116,7 @@ dependencies {
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    implementation(platform("androidx.compose:compose-bom:2024.08.00"))
+    implementation(platform("androidx.compose:compose-bom:2024.09.02"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.runtime:runtime")
@@ -127,7 +126,7 @@ dependencies {
     implementation("androidx.activity:activity-compose")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.08.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.09.02"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
