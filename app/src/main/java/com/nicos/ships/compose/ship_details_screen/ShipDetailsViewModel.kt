@@ -7,6 +7,7 @@ import com.nicos.ships.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,19 +17,20 @@ class ShipDetailsViewModel @Inject constructor(
 ) :
     ViewModel() {
 
-    val shipDetailsState = MutableStateFlow<ShipDetailsState>(ShipDetailsState())
+    private val _shipDetailsState = MutableStateFlow<ShipDetailsState>(ShipDetailsState())
+    val shipDetailsState: StateFlow<ShipDetailsState> = _shipDetailsState
 
     fun queryShipById(id: String) = viewModelScope.launch(Dispatchers.IO) {
-        shipDetailsState.value = shipDetailsState.value.copy(isLoading = true)
+        _shipDetailsState.value = shipDetailsState.value.copy(isLoading = true)
         shipDetailsRepository.queryShipById(id).let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    shipDetailsState.value =
+                    _shipDetailsState.value =
                         shipDetailsState.value.copy(isLoading = false, shipModel = resource.data)
                 }
 
                 is Resource.Error -> {
-                    shipDetailsState.value =
+                    _shipDetailsState.value =
                         shipDetailsState.value.copy(isLoading = false, error = resource.message)
                 }
             }

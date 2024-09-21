@@ -7,6 +7,7 @@ import com.nicos.ships.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,7 +16,8 @@ class ShipsViewModel @Inject constructor(
     private val shipsRepository: ShipsRepository,
 ) : ViewModel() {
 
-    var shipsState = MutableStateFlow<ShipsState>(ShipsState())
+    private val _shipsState = MutableStateFlow<ShipsState>(ShipsState())
+    val shipsState: StateFlow<ShipsState> = _shipsState
 
     init {
         requestForShipsData()
@@ -23,16 +25,16 @@ class ShipsViewModel @Inject constructor(
     }
 
     private fun requestForShipsData() = viewModelScope.launch(Dispatchers.IO) {
-        shipsState.value = shipsState.value.copy(isLoading = true)
+        _shipsState.value = shipsState.value.copy(isLoading = true)
         shipsRepository.fetchShipsData().let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    shipsState.value =
+                    _shipsState.value =
                         shipsState.value.copy(isLoading = false, shipsMutableList = resource.data)
                 }
 
                 is Resource.Error -> {
-                    shipsState.value =
+                    _shipsState.value =
                         shipsState.value.copy(
                             isLoading = false,
                             error = resource.message
@@ -43,16 +45,16 @@ class ShipsViewModel @Inject constructor(
     }
 
     private fun offline() = viewModelScope.launch(Dispatchers.IO) {
-        shipsState.value = shipsState.value.copy(isLoading = true)
+        _shipsState.value = shipsState.value.copy(isLoading = true)
         shipsRepository.queryToGetAllShips().let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    shipsState.value =
+                    _shipsState.value =
                         shipsState.value.copy(isLoading = false, shipsMutableList = resource.data)
                 }
 
                 is Resource.Error -> {
-                    shipsState.value =
+                    _shipsState.value =
                         shipsState.value.copy(
                             isLoading = false,
                             error = resource.message
