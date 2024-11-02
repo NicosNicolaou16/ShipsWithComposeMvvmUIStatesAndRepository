@@ -55,11 +55,11 @@ android {
 }
 
 val appCompatVersion by extra("1.7.0")
-val coreKtxVersion by extra("1.13.1")
-val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.6")
+val coreKtxVersion by extra("1.15.0")
+val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.8.7")
 val swipeRefreshLayoutVersion by extra("1.1.0")
-val activityVersion by extra("1.9.2")
-val fragmentVersion by extra("1.8.3")
+val activityVersion by extra("1.9.3")
+val fragmentVersion by extra("1.8.5")
 val retrofitVersion by extra("2.11.0")
 val okHttpVersion by extra("4.12.0")
 val roomVersion by extra("2.6.1")
@@ -74,7 +74,7 @@ val composeVersion by extra("1.5.6")
 val composeFoundationVersion by extra("1.5.4")
 val composeMaterialVersion by extra("1.5.4")
 val composeMaterial3Version by extra("1.1.2")
-val composeNavigationVersion by extra("2.8.1")
+val composeNavigationVersion by extra("2.8.3")
 val composeHiltNavigationVersion by extra("1.2.0")
 
 dependencies {
@@ -116,7 +116,7 @@ dependencies {
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    implementation(platform("androidx.compose:compose-bom:2024.09.02"))
+    implementation(platform("androidx.compose:compose-bom:2024.10.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.runtime:runtime")
@@ -126,7 +126,7 @@ dependencies {
     implementation("androidx.activity:activity-compose")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.09.02"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.10.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
