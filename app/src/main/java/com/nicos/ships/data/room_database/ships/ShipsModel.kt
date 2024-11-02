@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
 import com.nicos.ships.data.room_database.type_converter.ConverterMission
 import com.nicos.ships.data.room_database.type_converter.ConverterPosition
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 @Entity(indices = [Index(value = ["ship_id"], unique = true)])
@@ -66,10 +67,7 @@ data class ShipsModel(
             myRoomDatabase: MyRoomDatabase
         ) =
             flow {
-                saveShips(shipsModelList, myRoomDatabase).collect {
-                    myRoomDatabase.shipDao()
-                        .insertOrReplaceList(it) //insert the ship mode with position id
-                }
+                saveShips(shipsModelList, myRoomDatabase).collect()
                 emit(
                     myRoomDatabase.shipDao().getAllShips()
                 ) //return with flow - emit all ships data
@@ -83,6 +81,8 @@ data class ShipsModel(
                 val shipsModelListSaved = mutableListOf<ShipsModel>()
                 //delete the position and mission objects because their ids are auto generate (autoGenerate = true)
                 myRoomDatabase.positionDao().deleteAll()
+                myRoomDatabase.shipDao()
+                    .insertOrReplaceList(shipsModelList) //insert the ship
                 shipsModelList.forEach { ship ->
                     savePosition(ship, myRoomDatabase)
                     saveMissions(ship, myRoomDatabase)

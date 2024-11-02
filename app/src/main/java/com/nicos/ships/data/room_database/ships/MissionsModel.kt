@@ -1,13 +1,20 @@
 package com.nicos.ships.data.room_database.ships
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
 
 /**
  * One to Many
  * */
-@Entity
+@Entity(
+    foreignKeys = [ForeignKey(
+        entity = ShipsModel::class,
+        parentColumns = arrayOf("ship_id"),
+        childColumns = arrayOf("ship_id_missions")
+    )]
+)
 data class MissionsModel(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
