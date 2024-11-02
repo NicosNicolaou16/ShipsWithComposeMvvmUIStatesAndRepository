@@ -9,13 +9,13 @@ plugins {
 
 android {
     namespace = "com.nicos.ships"
-    buildToolsVersion = "34.0.0"
-    compileSdk = 34
+    buildToolsVersion = "35.0.0"
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.nicos.ships"
-        minSdk = 27
-        targetSdk = 34
+        minSdk = 28
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
