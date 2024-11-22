@@ -13,7 +13,7 @@ The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui
 [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an architecture where the Repository manages data sources (e.g., network, database), the ViewModel processes the data for the UI, and the View displays the UI, ensuring a clear separation of concerns. <br />
 [UI State](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events) to initial, loading, loaded and error. <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
-minifyEnabled, shrinkResources, R8 are enabled <br />
+[R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for Android that optimizes and reduces the size of APKs by removing unused code and resources, while also obfuscating the remaining code to improve security. <br />
 Gradle Kotlin DSL <br />
 
 ## Tutorials (Combination)
