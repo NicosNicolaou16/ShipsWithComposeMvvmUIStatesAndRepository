@@ -14,9 +14,7 @@ The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 Gradle Kotlin DSL <br />
-Repository <br />
 UI States <br />
-Offline <br />
 
 ## Tutorials (Combination)
 https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
