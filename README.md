@@ -12,7 +12,7 @@ The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui
 [Hilt Dependencies Injection](https://developer.android.com/training/dependency-injection/hilt-android) is an Android library that simplifies dependency injection by using annotations to automatically manage and provide dependencies across components, built on top of Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an architecture where the Repository manages data sources (e.g., network, database), the ViewModel processes the data for the UI, and the View displays the UI, ensuring a clear separation of concerns. <br />
 [UI State](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events) to initial, loading, loaded and error. <br />
-Support kapt and ksp (ksp only setup for Room Database) <br />
+[KSP](https://kotlinlang.org/docs/ksp-overview.html) (Kotlin Symbol Processing) is a tool for processing Kotlin code at compile time, enabling developers to create powerful code generation and annotation processing solutions. (ksp only setup for Room Database) ([Repository](https://github.com/google/ksp)) <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for Android that optimizes and reduces the size of APKs by removing unused code and resources, while also obfuscating the remaining code to improve security. <br />
 Gradle Kotlin DSL <br />
 
