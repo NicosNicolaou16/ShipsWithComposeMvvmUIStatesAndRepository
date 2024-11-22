@@ -14,7 +14,7 @@ The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui
 [UI State](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events) to initial, loading, loaded and error. <br />
 [KSP](https://kotlinlang.org/docs/ksp-overview.html) (Kotlin Symbol Processing) is a tool for processing Kotlin code at compile time, enabling developers to create powerful code generation and annotation processing solutions. (ksp only setup for Room Database) ([Repository](https://github.com/google/ksp)) <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for Android that optimizes and reduces the size of APKs by removing unused code and resources, while also obfuscating the remaining code to improve security. <br />
-Gradle Kotlin DSL <br />
+[Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) is a domain-specific language for configuring Gradle build scripts using Kotlin syntax, offering better IDE support and type safety compared to Groovy. <br />
 
 ## Tutorials (Combination)
 https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
