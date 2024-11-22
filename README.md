@@ -11,10 +11,10 @@ The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui
 [Room Database](https://developer.android.com/training/data-storage/room) is responsible for saving the retrieved data from the remote server, querying data from the local database, and supporting offline functionality.  <br />
 [Hilt Dependencies Injection](https://developer.android.com/training/dependency-injection/hilt-android) is an Android library that simplifies dependency injection by using annotations to automatically manage and provide dependencies across components, built on top of Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an architecture where the Repository manages data sources (e.g., network, database), the ViewModel processes the data for the UI, and the View displays the UI, ensuring a clear separation of concerns. <br />
+[UI State](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events) to initial, loading, loaded and error. <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
 Gradle Kotlin DSL <br />
-UI States <br />
 
 ## Tutorials (Combination)
 https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
