@@ -9,7 +9,7 @@ The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-sta
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 [Retrofit](https://square.github.io/retrofit/) is responsible for making requests and retrieving data from the remote server. ([Repository](https://github.com/square/retrofit)) <br />
 [Room Database](https://developer.android.com/training/data-storage/room) is responsible for saving the retrieved data from the remote server, querying data from the local database, and supporting offline functionality.  <br />
-Hilt Dependencies Injection <br />
+[Hilt Dependencies Injection](https://developer.android.com/training/dependency-injection/hilt-android) is an Android library that simplifies dependency injection by using annotations to automatically manage and provide dependencies across components, built on top of Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 MVVM <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
