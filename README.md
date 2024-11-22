@@ -7,8 +7,9 @@ The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-sta
 [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) is used for asynchronous tasks. <br />
 [Kotlin KTX](https://developer.android.com/kotlin/ktx) is a collection of Kotlin extensions that offer more concise and expressive code for working with Android APIs and libraries.
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
+[Retrofit](https://square.github.io/retrofit/) is responsible for making requests and retrieving data from the remote server. ([Repository](https://github.com/square/retrofit)) <br />
+[Room Database](https://developer.android.com/training/data-storage/room) is responsible for saving the retrieved data from the remote server, querying data from the local database, and supporting offline functionality.  <br />
 Hilt Dependencies Injection <br />
-Room Database <br />
 MVVM <br />
 Support kapt and ksp (ksp only setup for Room Database) <br />
 minifyEnabled, shrinkResources, R8 are enabled <br />
