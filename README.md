@@ -4,7 +4,7 @@ This project is an application that applied some of the latest Google technologi
 as Jetpack Compose, Hilt Dependencies Injection
 and Room Database.
 
-# This Project contains:
+# The Project Contain the following technologies
 
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a
 modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
@@ -39,6 +39,13 @@ also obfuscating the remaining code to improve security. <br />
 language for configuring Gradle build scripts using Kotlin syntax, offering better IDE support and
 type safety compared to Groovy. <br />
 
+# Versioning
+
+Target SDK version: 35 <br />
+Minimum SDK version: 28 <br />
+Kotlin version: 2.0.21 <br />
+Gradle version: 8.7.2 <br />
+
 ## Tutorials (Combination)
 
 https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
@@ -53,8 +60,3 @@ https://github.com/android/sunflower <br />
 
 https://github.com/r-spacex/SpaceX-API (GitHub) <br />
 https://docs.spacexdata.com/?version=latest (Postman) <br />
-
-Target SDK version: 35 <br />
-Minimum SDK version: 28 <br />
-Kotlin version: 2.0.21 <br />
-Gradle version: 8.7.2 <br />
