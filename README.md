@@ -46,7 +46,7 @@ Minimum SDK version: 28 <br />
 Kotlin version: 2.0.21 <br />
 Gradle version: 8.7.2 <br />
 
-## Tutorials (Combination)
+# Tutorials (Combination)
 
 https://www.youtube.com/watch?v=eAbKK7JNxCE&ab_channel=PhilippLackner <br />
 https://github.com/philipplackner/WeatherApp <br />
