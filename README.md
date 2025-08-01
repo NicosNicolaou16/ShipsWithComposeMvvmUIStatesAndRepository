@@ -55,7 +55,7 @@ type safety compared to Groovy. <br />
 Target SDK version: 36 <br />
 Minimum SDK version: 29 <br />
 Kotlin version: 2.2.0 <br />
-Gradle version: 8.11.1 <br />
+Gradle version: 8.12.0 <br />
 
 # Tutorials (Combination)
 
