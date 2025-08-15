@@ -7,6 +7,9 @@ import com.nicos.ships.data.room_database.init_database.BaseDao
 @Dao
 interface MissionsDao : BaseDao<MissionsModel, MutableList<MissionsModel>> {
 
+    @Query("SELECT * FROM MissionsModel WHERE shipId=:id")
+    suspend fun getAllMissionsByShipId(id: String): MutableList<MissionsModel>
+
     @Query("SELECT * FROM MissionsModel")
     suspend fun getAllMissions(): MutableList<MissionsModel>
 
