@@ -60,11 +60,11 @@ android {
 }
 
 val appCompatVersion by extra("1.7.1")
-val coreKtxVersion by extra("1.16.0")
+val coreKtxVersion by extra("1.17.0")
 val lifeCycleAndLiveDataCompilerAndViewModelKTXVersion by extra("2.9.2")
 val swipeRefreshLayoutVersion by extra("1.1.0")
 val activityVersion by extra("1.10.1")
-val fragmentVersion by extra("1.8.8")
+val fragmentVersion by extra("1.8.9")
 val retrofitVersion by extra("3.0.0")
 val roomVersion by extra("2.7.2")
 val coroutineVersion by extra("1.10.2")
@@ -115,7 +115,7 @@ dependencies {
     //Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    implementation(platform("androidx.compose:compose-bom:2025.07.00"))
+    implementation(platform("androidx.compose:compose-bom:2025.08.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.runtime:runtime")
@@ -125,7 +125,7 @@ dependencies {
     implementation("androidx.activity:activity-compose")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2025.07.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2025.08.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
