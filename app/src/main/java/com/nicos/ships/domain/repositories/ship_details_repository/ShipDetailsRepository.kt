@@ -13,7 +13,7 @@ class ShipDetailsRepository @Inject constructor(
 
     suspend fun queryShipById(id: String): Resource<ShipsModel?> {
         return try {
-            Resource.Success(myRoomDatabase.shipDao().getShipById(id))
+            Resource.Success(ShipsModel.getShipById(id, myRoomDatabase))
         } catch (e: Exception) {
             Resource.Error(message = handlingError.handleErrorMessage(e))
         }

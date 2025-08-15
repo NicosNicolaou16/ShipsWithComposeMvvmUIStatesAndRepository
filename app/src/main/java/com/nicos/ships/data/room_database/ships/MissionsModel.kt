@@ -12,7 +12,7 @@ import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
     foreignKeys = [ForeignKey(
         entity = ShipsModel::class,
         parentColumns = arrayOf("ship_id"),
-        childColumns = arrayOf("ship_id_missions")
+        childColumns = arrayOf("shipId")
     )]
 )
 data class MissionsModel(
@@ -20,7 +20,7 @@ data class MissionsModel(
     var id: Long = 0,
     var name: String?,
     var flight: Int?,
-    var ship_id_missions: String?
+    var shipId: String?
 ) {
 
     companion object {
@@ -31,7 +31,7 @@ data class MissionsModel(
         ) {
             val missionsList = mutableListOf<MissionsModel>()
             missionsModelList.forEach { mission ->
-                mission.ship_id_missions = shipId
+                mission.shipId = shipId
                 missionsList.add(mission)
             }
             myRoomDatabase.missionsDao().insertOrReplaceList(missionsList)

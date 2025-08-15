@@ -97,7 +97,7 @@ data class ShipsModel(
         private suspend fun savePosition(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
             PositionModel.insertThePosition(ship.position, myRoomDatabase).collect {
                 ship.positionId =
-                    it.position_id //get the position_id from PositionModel and assign to positionId (ShipModel)
+                    it.positionId //get the position_id from PositionModel and assign to positionId (ShipModel)
             }
         }
 
@@ -107,6 +107,17 @@ data class ShipsModel(
                 ship.ship_id,
                 myRoomDatabase
             ) //insert missions list object
+        }
+
+        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsModel? {
+            val ship = myRoomDatabase.shipDao().getShipById(id)
+            val missions = myRoomDatabase.missionsDao().getAllMissionsByShipId(id)
+            val position = myRoomDatabase.positionDao().getPositionById(ship?.positionId ?: -1)
+            ship?.missions = missions
+            if (position != null) {
+                ship?.position = position
+            }
+            return ship
         }
     }
 }

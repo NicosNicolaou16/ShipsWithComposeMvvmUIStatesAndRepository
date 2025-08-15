@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 @Entity
 data class PositionModel(
     @PrimaryKey(autoGenerate = true)
-    var position_id: Long,
+    var positionId: Long,
     var latitude: Double?,
     var longitude: Double?
 ) {
@@ -22,7 +22,7 @@ data class PositionModel(
         ) =
             flow {
                 myRoomDatabase.positionDao().insertOrReplaceObject(positionModel)
-                emit(myRoomDatabase.positionDao().getPosition())
+                emit(positionModel)
             }
     }
 }
