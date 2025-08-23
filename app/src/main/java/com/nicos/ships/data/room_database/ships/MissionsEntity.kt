@@ -15,7 +15,7 @@ import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
         childColumns = arrayOf("shipId")
     )]
 )
-data class MissionsModel(
+data class MissionsEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
     var name: String?,
@@ -25,12 +25,12 @@ data class MissionsModel(
 
     companion object {
         suspend fun insertTheMissions(
-            missionsModelList: MutableList<MissionsModel>,
+            missionsEntityList: MutableList<MissionsEntity>,
             shipId: String,
             myRoomDatabase: MyRoomDatabase
         ) {
-            val missionsList = mutableListOf<MissionsModel>()
-            missionsModelList.forEach { mission ->
+            val missionsList = mutableListOf<MissionsEntity>()
+            missionsEntityList.forEach { mission ->
                 mission.shipId = shipId
                 missionsList.add(mission)
             }

@@ -32,7 +32,7 @@ data class ShipsModel(
     var successful_landings: Int?,
     var attempted_landings: Int?,
     @TypeConverters(ConverterMission::class)
-    var missions: MutableList<MissionsModel>,
+    var missions: MutableList<MissionsEntity>,
     var url: String?,
     var image: String?,
 ) {
@@ -102,7 +102,7 @@ data class ShipsModel(
         }
 
         private suspend fun saveMissions(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
-            MissionsModel.insertTheMissions(
+            MissionsEntity.insertTheMissions(
                 ship.missions,
                 ship.ship_id,
                 myRoomDatabase
