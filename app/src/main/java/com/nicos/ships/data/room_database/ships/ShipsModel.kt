@@ -27,7 +27,7 @@ data class ShipsModel(
     var speed_kn: Int?,
     var course_deg: String?,
     @TypeConverters(ConverterPosition::class)
-    var position: PositionModel,
+    var position: PositionEntity,
     var positionId: Long,
     var successful_landings: Int?,
     var attempted_landings: Int?,
@@ -52,7 +52,7 @@ data class ShipsModel(
         null,
         null,
         null,
-        PositionModel(),
+        PositionEntity(),
         -1,
         null,
         null,
@@ -95,7 +95,7 @@ data class ShipsModel(
          * inset position object - one to one
          * */
         private suspend fun savePosition(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
-            PositionModel.insertThePosition(ship.position, myRoomDatabase).collect {
+            PositionEntity.insertThePosition(ship.position, myRoomDatabase).collect {
                 ship.positionId =
                     it.positionId //get the position_id from PositionModel and assign to positionId (ShipModel)
             }

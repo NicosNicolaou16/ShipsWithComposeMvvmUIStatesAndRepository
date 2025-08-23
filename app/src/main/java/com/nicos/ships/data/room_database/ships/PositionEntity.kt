@@ -6,7 +6,7 @@ import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
 import kotlinx.coroutines.flow.flow
 
 @Entity
-data class PositionModel(
+data class PositionEntity(
     @PrimaryKey(autoGenerate = true)
     var positionId: Long,
     var latitude: Double?,
@@ -17,12 +17,12 @@ data class PositionModel(
 
     companion object {
         suspend fun insertThePosition(
-            positionModel: PositionModel,
+            positionEntity: PositionEntity,
             myRoomDatabase: MyRoomDatabase
         ) =
             flow {
-                myRoomDatabase.positionDao().insertOrReplaceObject(positionModel)
-                emit(positionModel)
+                myRoomDatabase.positionDao().insertOrReplaceObject(positionEntity)
+                emit(positionEntity)
             }
     }
 }

@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import com.nicos.ships.data.room_database.ships.dao.MissionsDao
 import com.nicos.ships.data.room_database.ships.MissionsEntity
 import com.nicos.ships.data.room_database.ships.dao.PositionDao
-import com.nicos.ships.data.room_database.ships.PositionModel
+import com.nicos.ships.data.room_database.ships.PositionEntity
 import com.nicos.ships.data.room_database.ships.dao.ShipsDao
 import com.nicos.ships.data.room_database.ships.ShipsModel
 import com.nicos.ships.data.room_database.type_converter.ConverterMission
@@ -14,7 +14,7 @@ import com.nicos.ships.data.room_database.type_converter.ConverterPosition
 import javax.inject.Inject
 
 @Database(
-    entities = [ShipsModel::class, PositionModel::class, MissionsEntity::class],
+    entities = [ShipsModel::class, PositionEntity::class, MissionsEntity::class],
     version = 1,
     exportSchema = false
 )

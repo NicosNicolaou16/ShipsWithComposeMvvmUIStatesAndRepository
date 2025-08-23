@@ -4,7 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.nicos.ships.data.room_database.ships.MissionsEntity
-import com.nicos.ships.data.room_database.ships.PositionModel
+import com.nicos.ships.data.room_database.ships.PositionEntity
 
 class ConverterMission {
     @TypeConverter
@@ -19,12 +19,12 @@ class ConverterMission {
 class ConverterPosition {
 
     @TypeConverter
-    fun fromStringToPositions(value: String): PositionModel? {
-        return Gson().fromJson(value, object : TypeToken<PositionModel>() {}.type)
+    fun fromStringToPositions(value: String): PositionEntity? {
+        return Gson().fromJson(value, object : TypeToken<PositionEntity>() {}.type)
     }
 
     @TypeConverter
-    fun fromPositionToString(positionModel: PositionModel): String = Gson().toJson(positionModel)
+    fun fromPositionToString(positionEntity: PositionEntity): String = Gson().toJson(positionEntity)
 }
 
 
