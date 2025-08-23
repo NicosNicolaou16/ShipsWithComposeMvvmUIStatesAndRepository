@@ -26,7 +26,7 @@ class ShipDetailsViewModel @Inject constructor(
             when (resource) {
                 is Resource.Success -> {
                     _shipDetailsState.value =
-                        shipDetailsState.value.copy(isLoading = false, shipModel = resource.data)
+                        shipDetailsState.value.copy(isLoading = false, shipDetailsUI = resource.data)
                 }
 
                 is Resource.Error -> {

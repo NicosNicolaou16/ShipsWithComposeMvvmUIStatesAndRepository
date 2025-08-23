@@ -1,9 +1,9 @@
 package com.nicos.ships.compose.ship_details_screen
 
-import com.nicos.ships.data.room_database.ships.ShipsEntity
+import com.nicos.ships.domain.models.ShipDetailsUI
 
 data class ShipDetailsState(
-    val shipModel: ShipsEntity? = null,
+    val shipDetailsUI: ShipDetailsUI? = null,
     val isLoading: Boolean = false,
     val error: String? = null,
 )

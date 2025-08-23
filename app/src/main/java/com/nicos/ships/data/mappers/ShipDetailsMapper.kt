@@ -9,7 +9,8 @@ fun ShipsEntity.toShipDetailsUI(): ShipDetailsUI {
         shipName = shipName,
         shipType = shipType,
         active = active,
-        missionsEntity = missions
+        missionsEntity = missions,
+        image = image,
     )
 }
 
@@ -34,6 +35,6 @@ fun ShipDetailsUI.toShipsEntity(): ShipsEntity {
         attemptedLandings = null,
         missions = missionsEntity,
         url = null,
-        image = null,
+        image = image,
     )
 }

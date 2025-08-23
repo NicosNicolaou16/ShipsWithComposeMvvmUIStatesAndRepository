@@ -7,5 +7,6 @@ data class ShipDetailsUI(
     val shipName: String?,
     val shipType: String?,
     val active: Boolean?,
-    val missionsEntity: MutableList<MissionsEntity>
+    val missionsEntity: MutableList<MissionsEntity>,
+    val image: String?,
 )

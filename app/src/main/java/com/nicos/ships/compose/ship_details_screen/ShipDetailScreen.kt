@@ -45,6 +45,7 @@ import com.nicos.ships.R
 import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
 import com.nicos.ships.data.room_database.ships.ShipsEntity
+import com.nicos.ships.domain.models.ShipDetailsUI
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
@@ -62,7 +63,7 @@ internal fun ShipDetailsScreen(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Gray,
         topBar = {
-            CustomToolbar(shipDetailsState.shipModel?.shipName ?: "")
+            CustomToolbar(shipDetailsState.shipDetailsUI?.shipName ?: "")
         },
         content = { paddingValue ->
             if (shipDetailsState.isLoading) StartDefaultLoader()
@@ -70,13 +71,13 @@ internal fun ShipDetailsScreen(
                 title = shipDetailsState.error,
                 message = ""
             )
-            ShipDetailsView(shipDetailsState.shipModel, paddingValue)
+            ShipDetailsView(shipDetailsState.shipDetailsUI, paddingValue)
         })
 }
 
 @Composable
 private fun ShipDetailsView(
-    shipData: ShipsEntity?,
+    shipData: ShipDetailsUI?,
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
@@ -99,14 +100,14 @@ private fun ShipDetailsView(
                     .height(height = 300.dp)
             )
             BasicInfo(shipData)
-            HorizontalRolesAndMissionsList(shipData?.missions?.map { it.name ?: "" }
+            HorizontalRolesAndMissionsList(shipData?.missionsEntity?.map { it.name ?: "" }
                 ?.toMutableList() ?: mutableListOf())
         }
     }
 }
 
 @Composable
-private fun BasicInfo(shipData: ShipsEntity?) {
+private fun BasicInfo(shipData: ShipDetailsUI?) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
             .fillMaxWidth()
