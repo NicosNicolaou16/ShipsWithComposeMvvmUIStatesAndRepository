@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import com.nicos.ships.data.room_database.init_database.BaseDao
-import com.nicos.ships.data.room_database.ships.ShipWithRelationships
 import com.nicos.ships.data.room_database.ships.ShipsEntity
 
 @Dao
