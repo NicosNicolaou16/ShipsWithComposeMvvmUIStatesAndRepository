@@ -3,14 +3,14 @@ package com.nicos.ships.data.room_database.ships.dao
 import androidx.room.Dao
 import androidx.room.Query
 import com.nicos.ships.data.room_database.init_database.BaseDao
-import com.nicos.ships.data.room_database.ships.ShipsModel
+import com.nicos.ships.data.room_database.ships.ShipsEntity
 
 @Dao
-interface ShipsDao : BaseDao<ShipsModel, MutableList<ShipsModel>> {
+interface ShipsDao : BaseDao<ShipsEntity, MutableList<ShipsEntity>> {
 
-    @Query("SELECT * FROM shipsmodel")
-    suspend fun getAllShips(): MutableList<ShipsModel>
+    @Query("SELECT * FROM shipsentity")
+    suspend fun getAllShips(): MutableList<ShipsEntity>
 
-    @Query("SELECT * FROM shipsmodel WHERE ship_id=:id")
-    suspend fun getShipById(id: String): ShipsModel?
+    @Query("SELECT * FROM shipsentity WHERE ship_id=:id")
+    suspend fun getShipById(id: String): ShipsEntity?
 }

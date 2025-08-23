@@ -10,7 +10,7 @@ import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
  * */
 @Entity(
     foreignKeys = [ForeignKey(
-        entity = ShipsModel::class,
+        entity = ShipsEntity::class,
         parentColumns = arrayOf("ship_id"),
         childColumns = arrayOf("shipId")
     )]

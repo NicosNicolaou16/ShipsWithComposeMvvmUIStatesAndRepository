@@ -8,13 +8,13 @@ import com.nicos.ships.data.room_database.ships.MissionsEntity
 import com.nicos.ships.data.room_database.ships.dao.PositionDao
 import com.nicos.ships.data.room_database.ships.PositionEntity
 import com.nicos.ships.data.room_database.ships.dao.ShipsDao
-import com.nicos.ships.data.room_database.ships.ShipsModel
+import com.nicos.ships.data.room_database.ships.ShipsEntity
 import com.nicos.ships.data.room_database.type_converter.ConverterMission
 import com.nicos.ships.data.room_database.type_converter.ConverterPosition
 import javax.inject.Inject
 
 @Database(
-    entities = [ShipsModel::class, PositionEntity::class, MissionsEntity::class],
+    entities = [ShipsEntity::class, PositionEntity::class, MissionsEntity::class],
     version = 1,
     exportSchema = false
 )

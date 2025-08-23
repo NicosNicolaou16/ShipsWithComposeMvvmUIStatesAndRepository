@@ -14,6 +14,6 @@ interface MissionsDao : BaseDao<MissionsEntity, MutableList<MissionsEntity>> {
     @Query("SELECT * FROM MissionsEntity")
     suspend fun getAllMissions(): MutableList<MissionsEntity>
 
-    @Query("DELETE FROM missionsmodel")
+    @Query("DELETE FROM missionsentity")
     suspend fun deleteAll()
 }

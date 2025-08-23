@@ -44,7 +44,7 @@ import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.Custo
 import com.nicos.ships.R
 import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
-import com.nicos.ships.data.room_database.ships.ShipsModel
+import com.nicos.ships.data.room_database.ships.ShipsEntity
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
@@ -76,7 +76,7 @@ internal fun ShipDetailsScreen(
 
 @Composable
 private fun ShipDetailsView(
-    shipData: ShipsModel?,
+    shipData: ShipsEntity?,
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
@@ -106,7 +106,7 @@ private fun ShipDetailsView(
 }
 
 @Composable
-private fun BasicInfo(shipData: ShipsModel?) {
+private fun BasicInfo(shipData: ShipsEntity?) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
             .fillMaxWidth()

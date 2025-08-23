@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 @Entity(indices = [Index(value = ["ship_id"], unique = true)])
-data class ShipsModel(
+data class ShipsEntity(
     @PrimaryKey
     var ship_id: String,
     var ship_name: String?,
@@ -63,45 +63,45 @@ data class ShipsModel(
 
     companion object {
         suspend fun insertTheShips(
-            shipsModelList: MutableList<ShipsModel>,
+            shipsEntityList: MutableList<ShipsEntity>,
             myRoomDatabase: MyRoomDatabase
         ) =
             flow {
-                saveShips(shipsModelList, myRoomDatabase).collect()
+                saveShips(shipsEntityList, myRoomDatabase).collect()
                 emit(
                     myRoomDatabase.shipDao().getAllShips()
                 ) //return with flow - emit all ships data
             }
 
         private suspend fun saveShips(
-            shipsModelList: MutableList<ShipsModel>,
+            shipsEntityList: MutableList<ShipsEntity>,
             myRoomDatabase: MyRoomDatabase
         ) =
             flow {
-                val shipsModelListSaved = mutableListOf<ShipsModel>()
+                val shipsEntityListSaved = mutableListOf<ShipsEntity>()
                 //delete the position and mission objects because their ids are auto generate (autoGenerate = true)
                 myRoomDatabase.positionDao().deleteAll()
                 myRoomDatabase.shipDao()
-                    .insertOrReplaceList(shipsModelList) //insert the ship
-                shipsModelList.forEach { ship ->
+                    .insertOrReplaceList(shipsEntityList) //insert the ship
+                shipsEntityList.forEach { ship ->
                     savePosition(ship, myRoomDatabase)
                     saveMissions(ship, myRoomDatabase)
-                    shipsModelListSaved.add(ship) //add the ship data into list to insert into the database
+                    shipsEntityListSaved.add(ship) //add the ship data into list to insert into the database
                 }
-                emit(shipsModelListSaved)
+                emit(shipsEntityListSaved)
             }
 
         /**
          * inset position object - one to one
          * */
-        private suspend fun savePosition(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
+        private suspend fun savePosition(ship: ShipsEntity, myRoomDatabase: MyRoomDatabase) {
             PositionEntity.insertThePosition(ship.position, myRoomDatabase).collect {
                 ship.positionId =
                     it.positionId //get the position_id from PositionModel and assign to positionId (ShipModel)
             }
         }
 
-        private suspend fun saveMissions(ship: ShipsModel, myRoomDatabase: MyRoomDatabase) {
+        private suspend fun saveMissions(ship: ShipsEntity, myRoomDatabase: MyRoomDatabase) {
             MissionsEntity.insertTheMissions(
                 ship.missions,
                 ship.ship_id,
@@ -109,7 +109,7 @@ data class ShipsModel(
             ) //insert missions list object
         }
 
-        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsModel? {
+        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsEntity? {
             val ship = myRoomDatabase.shipDao().getShipById(id)
             val missions = myRoomDatabase.missionsDao().getAllMissionsByShipId(id)
             val position = myRoomDatabase.positionDao().getPositionById(ship?.positionId ?: -1)

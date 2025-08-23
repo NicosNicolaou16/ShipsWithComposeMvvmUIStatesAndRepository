@@ -1,7 +1,7 @@
 package com.nicos.ships.domain.repositories.ships_repository
 
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
-import com.nicos.ships.data.room_database.ships.ShipsModel
+import com.nicos.ships.data.room_database.ships.ShipsEntity
 import com.nicos.ships.domain.remote.ship_service.ShipService
 import com.nicos.ships.utils.generic_classes.HandlingError
 import com.nicos.ships.utils.generic_classes.Resource
@@ -14,7 +14,7 @@ class ShipsRepository @Inject constructor(
     private val handlingError: HandlingError
 ) {
 
-    suspend fun fetchShipsData(): Resource<MutableList<ShipsModel>> {
+    suspend fun fetchShipsData(): Resource<MutableList<ShipsEntity>> {
         return try {
             val shipsList = shipService.getShips()
             saveShipDataIntoDatabase(shipsList)
@@ -24,11 +24,11 @@ class ShipsRepository @Inject constructor(
         }
     }
 
-    private suspend fun saveShipDataIntoDatabase(shipsModelList: MutableList<ShipsModel>) {
-        ShipsModel.insertTheShips(shipsModelList, myRoomDatabase).collect()
+    private suspend fun saveShipDataIntoDatabase(shipsEntityList: MutableList<ShipsEntity>) {
+        ShipsEntity.insertTheShips(shipsEntityList, myRoomDatabase).collect()
     }
 
-    suspend fun queryToGetAllShips(): Resource<MutableList<ShipsModel>> {
+    suspend fun queryToGetAllShips(): Resource<MutableList<ShipsEntity>> {
         return try {
             val shipsList = myRoomDatabase.shipDao().getAllShips()
             saveShipDataIntoDatabase(shipsList)
