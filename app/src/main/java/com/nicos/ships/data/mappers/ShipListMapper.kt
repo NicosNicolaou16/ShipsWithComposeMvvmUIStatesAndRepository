@@ -12,6 +12,14 @@ fun ShipsEntity.toShipListUI(): ShipListUI {
     )
 }
 
+fun MutableList<ShipsEntity>.toShipListUI(): MutableList<ShipListUI> {
+    val list = mutableListOf<ShipListUI>()
+    this.forEach {
+        list.add(it.toShipListUI())
+    }
+    return list
+}
+
 fun ShipListUI.toShipsEntity(): ShipsEntity {
     return ShipsEntity(
         id = id,
@@ -35,4 +43,12 @@ fun ShipListUI.toShipsEntity(): ShipsEntity {
         url = null,
         image = image,
     )
+}
+
+fun MutableList<ShipListUI>.toShipsEntity(): MutableList<ShipsEntity> {
+    val list = mutableListOf<ShipsEntity>()
+    this.forEach {
+        list.add(it.toShipsEntity())
+    }
+    return list
 }
