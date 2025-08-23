@@ -8,29 +8,38 @@ import com.nicos.ships.data.room_database.type_converter.ConverterPosition
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
-@Entity(indices = [Index(value = ["ship_id"], unique = true)])
+@Entity(indices = [Index(value = ["id"], unique = true)])
 data class ShipsEntity(
     @PrimaryKey
-    var ship_id: String,
-    var ship_name: String?,
-    var ship_type: String?,
+    @SerializedName("ship_id")
+    var id: String,
+    @SerializedName("ship_name")
+    var shipName: String?,
+    @SerializedName("ship_type")
+    var shipType: String?,
     var active: Boolean?,
     var imo: Long?,
     var mmsi: Long?,
     var abs: Long?,
     @SerializedName("class")
     var clazz: Long?,
-    var weight_lbs: Long?,
-    var year_built: Long?,
-    var home_port: String?,
+    @SerializedName("weight_lbs")
+    var weightLbs: Long?,
+    @SerializedName("year_built")
+    var yearBuilt: Long?,
+    @SerializedName("home_port")
+    var homePort: String?,
     var status: String?,
-    var speed_kn: Int?,
-    var course_deg: String?,
+    @SerializedName("speed_kn")
+    var speedKn: Int?,
+    @SerializedName("course_deg")
+    var courseDeg: String?,
     @TypeConverters(ConverterPosition::class)
-    var position: PositionEntity,
-    var positionId: Long,
-    var successful_landings: Int?,
-    var attempted_landings: Int?,
+    var position: PositionEntity?,
+    @SerializedName("successful_landings")
+    var successfulLandings: Int?,
+    @SerializedName("attempted_landings")
+    var attemptedLandings: Int?,
     @TypeConverters(ConverterMission::class)
     var missions: MutableList<MissionsEntity>,
     var url: String?,
@@ -39,26 +48,25 @@ data class ShipsEntity(
 
     constructor() : this(
         "",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        PositionEntity(),
-        -1,
-        null,
-        null,
-        mutableListOf(),
-        null,
-        null
+        shipName = null,
+        shipType = null,
+        active = null,
+        imo = null,
+        mmsi = null,
+        abs = null,
+        clazz = null,
+        weightLbs = null,
+        yearBuilt = null,
+        homePort = null,
+        status = null,
+        speedKn = null,
+        courseDeg = null,
+        position = null,
+        successfulLandings = null,
+        attemptedLandings = null,
+        missions = mutableListOf(),
+        url = null,
+        image = null
     )
 
     companion object {
@@ -81,8 +89,9 @@ data class ShipsEntity(
                 val shipsEntityListSaved = mutableListOf<ShipsEntity>()
                 //delete the position and mission objects because their ids are auto generate (autoGenerate = true)
                 myRoomDatabase.positionDao().deleteAll()
-                myRoomDatabase.shipDao()
-                    .insertOrReplaceList(shipsEntityList) //insert the ship
+                myRoomDatabase.missionsDao().deleteAll()
+                //insert the ship model
+                myRoomDatabase.shipDao().insertOrReplaceList(shipsEntityList)
                 shipsEntityList.forEach { ship ->
                     savePosition(ship, myRoomDatabase)
                     saveMissions(ship, myRoomDatabase)
@@ -95,28 +104,26 @@ data class ShipsEntity(
          * inset position object - one to one
          * */
         private suspend fun savePosition(ship: ShipsEntity, myRoomDatabase: MyRoomDatabase) {
-            PositionEntity.insertThePosition(ship.position, myRoomDatabase).collect {
-                ship.positionId =
-                    it.positionId //get the position_id from PositionModel and assign to positionId (ShipModel)
-            }
+            PositionEntity.insertThePosition(
+                positionEntity = ship.position,
+                shipId = ship.id,
+                myRoomDatabase = myRoomDatabase
+            )
         }
 
+        /**
+         * insert missions one to many
+         * */
         private suspend fun saveMissions(ship: ShipsEntity, myRoomDatabase: MyRoomDatabase) {
             MissionsEntity.insertTheMissions(
-                ship.missions,
-                ship.ship_id,
-                myRoomDatabase
+                missionsEntityList = ship.missions,
+                shipId = ship.id,
+                myRoomDatabase = myRoomDatabase
             ) //insert missions list object
         }
 
         suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsEntity? {
             val ship = myRoomDatabase.shipDao().getShipById(id)
-            val missions = myRoomDatabase.missionsDao().getAllMissionsByShipId(id)
-            val position = myRoomDatabase.positionDao().getPositionById(ship?.positionId ?: -1)
-            ship?.missions = missions
-            if (position != null) {
-                ship?.position = position
-            }
             return ship
         }
     }

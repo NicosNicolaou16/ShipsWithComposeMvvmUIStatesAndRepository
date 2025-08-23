@@ -62,7 +62,7 @@ internal fun ShipDetailsScreen(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Gray,
         topBar = {
-            CustomToolbar(shipDetailsState.shipModel?.ship_name ?: "")
+            CustomToolbar(shipDetailsState.shipModel?.shipName ?: "")
         },
         content = { paddingValue ->
             if (shipDetailsState.isLoading) StartDefaultLoader()
@@ -115,7 +115,7 @@ private fun BasicInfo(shipData: ShipsEntity?) {
     ) {
         Column(horizontalAlignment = Alignment.Start) {
             Text(
-                text = stringResource(R.string.ship_name) + shipData?.ship_name,
+                text = stringResource(R.string.ship_name) + shipData?.shipName,
                 modifier = Modifier.width(width = 300.dp),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
@@ -127,7 +127,7 @@ private fun BasicInfo(shipData: ShipsEntity?) {
                 color = Color.White,
             )
             Text(
-                text = stringResource(R.string.ship_type) + shipData?.ship_type,
+                text = stringResource(R.string.ship_type) + shipData?.shipType,
                 style = TextStyle(
                     fontSize = 21.sp,
                     textAlign = TextAlign.Start,

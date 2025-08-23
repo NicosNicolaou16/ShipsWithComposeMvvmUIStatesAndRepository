@@ -65,14 +65,14 @@ private fun ListOfShips(
     LazyColumn {
         items(
             shipsState.shipsMutableList ?: emptyList(),
-            key = { shipModel -> shipModel.ship_id }) {
+            key = { shipModel -> shipModel.id }) {
             ShipItemView(shipModel = it) { selectedShipDataValue ->
                 Toast.makeText(
                     context,
-                    selectedShipDataValue.ship_name.toString(),
+                    selectedShipDataValue.shipName.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
-                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.ship_id}")
+                navController.navigate(SHIP_DETAILS_SCREEN + "/${selectedShipDataValue.id}")
             }
         }
     }
@@ -125,12 +125,12 @@ private fun ShipItemView(
             ) {
                 Column {
                     Text(
-                        shipModel.ship_name.toString(),
+                        shipModel.shipName.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )
                     Text(
-                        shipModel.ship_type.toString(),
+                        shipModel.shipType.toString(),
                         style = TextStyle(fontSize = 15.sp, textAlign = TextAlign.Center),
                         color = Color.White,
                     )

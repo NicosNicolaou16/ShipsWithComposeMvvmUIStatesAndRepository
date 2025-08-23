@@ -8,7 +8,7 @@ import com.nicos.ships.data.room_database.ships.PositionEntity
 @Dao
 interface PositionDao: BaseDao<PositionEntity, MutableList<PositionEntity>> {
 
-    @Query("SELECT * FROM positionentity WHERE positionId=:id")
+    @Query("SELECT * FROM positionentity WHERE id=:id")
     suspend fun getPositionById(id: Long): PositionEntity?
 
     @Query("DELETE FROM PositionEntity")
