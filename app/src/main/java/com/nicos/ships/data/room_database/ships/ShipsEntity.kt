@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.flow
 
 @Entity(indices = [Index(value = ["id"], unique = true)])
 data class ShipsEntity(
-    @PrimaryKey
     @SerializedName("ship_id")
+    @PrimaryKey
     var id: String,
     @SerializedName("ship_name")
     var shipName: String?,
@@ -45,30 +45,6 @@ data class ShipsEntity(
     var url: String?,
     var image: String?,
 ) {
-
-    constructor() : this(
-        "",
-        shipName = null,
-        shipType = null,
-        active = null,
-        imo = null,
-        mmsi = null,
-        abs = null,
-        clazz = null,
-        weightLbs = null,
-        yearBuilt = null,
-        homePort = null,
-        status = null,
-        speedKn = null,
-        courseDeg = null,
-        position = null,
-        successfulLandings = null,
-        attemptedLandings = null,
-        missions = mutableListOf(),
-        url = null,
-        image = null
-    )
-
     companion object {
         suspend fun insertTheShips(
             shipsEntityList: MutableList<ShipsEntity>,
@@ -122,7 +98,7 @@ data class ShipsEntity(
             ) //insert missions list object
         }
 
-        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipWithRelationships? {
+        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsEntity? {
             val ship = myRoomDatabase.shipDao().getShipById(id)
             return ship
         }

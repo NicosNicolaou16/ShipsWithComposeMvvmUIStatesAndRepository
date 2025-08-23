@@ -1,9 +1,7 @@
-package com.nick.nickjetpackprojectandextras.room_database.ships
+package com.nicos.ships.data.room_database.ships
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.nicos.ships.data.room_database.ships.MissionsEntity
-import com.nicos.ships.data.room_database.ships.ShipsEntity
 
 /**
  * One to Many relationships

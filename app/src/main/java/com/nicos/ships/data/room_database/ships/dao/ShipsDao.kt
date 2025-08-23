@@ -17,14 +17,4 @@ interface ShipsDao : BaseDao<ShipsEntity, MutableList<ShipsEntity>> {
     @Transaction
     @Query("SELECT * FROM shipsentity WHERE id=:id")
     suspend fun getShipById(id: String): ShipsEntity?
-
-    @Transaction
-    @Query("SELECT * FROM shipsentity")
-    suspend fun getShipsWithRelationships(): MutableList<ShipWithRelationships>
-
-    @Transaction
-    @Query("SELECT * FROM shipsentity WHERE id=:id")
-    suspend fun getShipWithRelationshipsById(id: String): ShipWithRelationships?
-
-
 }
