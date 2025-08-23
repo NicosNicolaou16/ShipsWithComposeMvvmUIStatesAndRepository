@@ -44,7 +44,8 @@ import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.Custo
 import com.nicos.ships.R
 import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
-import com.nicos.ships.data.room_database.ships.ShipsModel
+import com.nicos.ships.data.room_database.ships.ShipsEntity
+import com.nicos.ships.domain.models.ShipDetailsUI
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
@@ -62,7 +63,7 @@ internal fun ShipDetailsScreen(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Gray,
         topBar = {
-            CustomToolbar(shipDetailsState.shipModel?.ship_name ?: "")
+            CustomToolbar(shipDetailsState.shipDetailsUI?.shipName ?: "")
         },
         content = { paddingValue ->
             if (shipDetailsState.isLoading) StartDefaultLoader()
@@ -70,13 +71,13 @@ internal fun ShipDetailsScreen(
                 title = shipDetailsState.error,
                 message = ""
             )
-            ShipDetailsView(shipDetailsState.shipModel, paddingValue)
+            ShipDetailsView(shipDetailsState.shipDetailsUI, paddingValue)
         })
 }
 
 @Composable
 private fun ShipDetailsView(
-    shipData: ShipsModel?,
+    shipData: ShipDetailsUI?,
     paddingValues: PaddingValues
 ) {
     val context = LocalContext.current
@@ -99,14 +100,14 @@ private fun ShipDetailsView(
                     .height(height = 300.dp)
             )
             BasicInfo(shipData)
-            HorizontalRolesAndMissionsList(shipData?.missions?.map { it.name ?: "" }
+            HorizontalRolesAndMissionsList(shipData?.missionsEntity?.map { it.name ?: "" }
                 ?.toMutableList() ?: mutableListOf())
         }
     }
 }
 
 @Composable
-private fun BasicInfo(shipData: ShipsModel?) {
+private fun BasicInfo(shipData: ShipDetailsUI?) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
             .fillMaxWidth()
@@ -115,7 +116,7 @@ private fun BasicInfo(shipData: ShipsModel?) {
     ) {
         Column(horizontalAlignment = Alignment.Start) {
             Text(
-                text = stringResource(R.string.ship_name) + shipData?.ship_name,
+                text = stringResource(R.string.ship_name) + shipData?.shipName,
                 modifier = Modifier.width(width = 300.dp),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
@@ -127,7 +128,7 @@ private fun BasicInfo(shipData: ShipsModel?) {
                 color = Color.White,
             )
             Text(
-                text = stringResource(R.string.ship_type) + shipData?.ship_type,
+                text = stringResource(R.string.ship_type) + shipData?.shipType,
                 style = TextStyle(
                     fontSize = 21.sp,
                     textAlign = TextAlign.Start,
