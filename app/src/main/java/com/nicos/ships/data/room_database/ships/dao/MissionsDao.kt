@@ -1,8 +1,9 @@
-package com.nicos.ships.data.room_database.ships
+package com.nicos.ships.data.room_database.ships.dao
 
 import androidx.room.Dao
 import androidx.room.Query
 import com.nicos.ships.data.room_database.init_database.BaseDao
+import com.nicos.ships.data.room_database.ships.MissionsModel
 
 @Dao
 interface MissionsDao : BaseDao<MissionsModel, MutableList<MissionsModel>> {
