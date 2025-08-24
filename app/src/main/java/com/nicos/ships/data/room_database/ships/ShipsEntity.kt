@@ -98,8 +98,11 @@ data class ShipsEntity(
             ) //insert missions list object
         }
 
-        suspend fun getShipById(id: String, myRoomDatabase: MyRoomDatabase): ShipsEntity? {
-            val ship = myRoomDatabase.shipDao().getShipById(id)
+        suspend fun getShipById(
+            id: String,
+            myRoomDatabase: MyRoomDatabase
+        ): ShipWithRelationships? {
+            val ship: ShipWithRelationships? = myRoomDatabase.shipDao().getShipWithRelationship(id)
             return ship
         }
     }
