@@ -10,10 +10,10 @@ data class ShipWithRelationships(
         parentColumn = "id",
         entityColumn = "shipId"
     )
-    val shipAndPositionModel: ShipAndPositionModel?,
+    val positionEntity: PositionEntity?,
     @Relation(
         parentColumn = "id",
         entityColumn = "shipId"
     )
-    val shipWithMissionsModel: MutableList<ShipWithMissionsModel>,
+    val missionsEntity: MutableList<MissionsEntity>,
 )
