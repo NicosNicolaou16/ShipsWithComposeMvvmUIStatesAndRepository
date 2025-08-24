@@ -2,6 +2,7 @@ package com.nicos.ships.domain.repositories.ship_details_repository
 
 import com.nicos.ships.data.mappers.toShipDetailsUI
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
+import com.nicos.ships.data.room_database.ships.ShipWithRelationships
 import com.nicos.ships.data.room_database.ships.ShipsEntity
 import com.nicos.ships.domain.models.ShipDetailsUI
 import com.nicos.ships.utils.generic_classes.HandlingError
@@ -15,7 +16,7 @@ class ShipDetailsRepository @Inject constructor(
 
     suspend fun queryShipById(id: String): Resource<ShipDetailsUI?> {
         return try {
-            val ship: ShipsEntity? = ShipsEntity.getShipById(id, myRoomDatabase)
+            val ship: ShipWithRelationships? = ShipsEntity.getShipById(id, myRoomDatabase)
             Resource.Success(ship?.toShipDetailsUI())
         } catch (e: Exception) {
             Resource.Error(message = handlingError.handleErrorMessage(e))

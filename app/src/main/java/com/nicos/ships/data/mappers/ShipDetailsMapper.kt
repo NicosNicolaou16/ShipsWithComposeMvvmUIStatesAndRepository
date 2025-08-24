@@ -1,16 +1,17 @@
 package com.nicos.ships.data.mappers
 
+import com.nicos.ships.data.room_database.ships.ShipWithRelationships
 import com.nicos.ships.data.room_database.ships.ShipsEntity
 import com.nicos.ships.domain.models.ShipDetailsUI
 
-fun ShipsEntity.toShipDetailsUI(): ShipDetailsUI {
+fun ShipWithRelationships.toShipDetailsUI(): ShipDetailsUI {
     return ShipDetailsUI(
-        id = id,
-        shipName = shipName,
-        shipType = shipType,
-        active = active,
-        missionsEntity = missions,
-        image = image,
+        id = this.shipsEntity.id,
+        shipName = this.shipsEntity.shipName,
+        shipType = this.shipsEntity.shipType,
+        active = this.shipsEntity.active,
+        missionsEntity = this.shipsEntity.missions,
+        image = this.shipsEntity.image,
     )
 }
 
@@ -36,5 +37,13 @@ fun ShipDetailsUI.toShipsEntity(): ShipsEntity {
         missions = missionsEntity,
         url = null,
         image = image,
+    )
+}
+
+fun ShipDetailsUI.toShipWithRelationships(): ShipWithRelationships {
+    return ShipWithRelationships(
+        shipsEntity = this.toShipsEntity(),
+        positionEntity = null,
+        missionsEntity = this.missionsEntity,
     )
 }
