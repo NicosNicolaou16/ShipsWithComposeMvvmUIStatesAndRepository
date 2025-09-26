@@ -1,4 +1,4 @@
-package com.nicos.ships.domain.models
+package com.nicos.ships.compose.ships_screen
 
 data class ShipListUI(
     val id: String,

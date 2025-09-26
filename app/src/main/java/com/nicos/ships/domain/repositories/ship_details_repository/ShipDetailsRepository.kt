@@ -4,7 +4,7 @@ import com.nicos.ships.data.mappers.toShipDetailsUI
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
 import com.nicos.ships.data.room_database.ships.ShipWithRelationships
 import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.domain.models.ShipDetailsUI
+import com.nicos.ships.compose.ship_details_screen.ShipDetailsUI
 import com.nicos.ships.utils.generic_classes.HandlingError
 import com.nicos.ships.utils.generic_classes.Resource
 import javax.inject.Inject

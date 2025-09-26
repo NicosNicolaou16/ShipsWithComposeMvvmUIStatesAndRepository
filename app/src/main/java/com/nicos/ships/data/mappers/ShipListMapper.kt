@@ -1,7 +1,7 @@
 package com.nicos.ships.data.mappers
 
 import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.domain.models.ShipListUI
+import com.nicos.ships.compose.ships_screen.ShipListUI
 
 fun ShipsEntity.toShipListUI(): ShipListUI {
     return ShipListUI(

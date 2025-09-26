@@ -1,4 +1,4 @@
-package com.nicos.ships.domain.models
+package com.nicos.ships.compose.ship_details_screen
 
 import com.nicos.ships.data.room_database.ships.MissionsEntity
 

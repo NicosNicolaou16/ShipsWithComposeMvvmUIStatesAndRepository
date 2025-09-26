@@ -30,7 +30,7 @@ import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
 import com.nicos.ships.R
 import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.domain.models.ShipListUI
+import com.nicos.ships.compose.ships_screen.ShipListUI
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import com.nicos.ships.utils.screen_routes.Screens.SHIP_DETAILS_SCREEN
 import kotlinx.coroutines.Dispatchers

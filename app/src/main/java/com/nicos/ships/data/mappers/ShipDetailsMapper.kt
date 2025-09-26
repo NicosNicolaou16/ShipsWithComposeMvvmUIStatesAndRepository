@@ -2,7 +2,7 @@ package com.nicos.ships.data.mappers
 
 import com.nicos.ships.data.room_database.ships.ShipWithRelationships
 import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.domain.models.ShipDetailsUI
+import com.nicos.ships.compose.ship_details_screen.ShipDetailsUI
 
 fun ShipWithRelationships.toShipDetailsUI(): ShipDetailsUI {
     return ShipDetailsUI(

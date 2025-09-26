@@ -3,7 +3,7 @@ package com.nicos.ships.domain.repositories.ships_repository
 import com.nicos.ships.data.mappers.toShipListUI
 import com.nicos.ships.data.room_database.init_database.MyRoomDatabase
 import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.domain.models.ShipListUI
+import com.nicos.ships.compose.ships_screen.ShipListUI
 import com.nicos.ships.domain.remote.ship_service.ShipService
 import com.nicos.ships.utils.generic_classes.HandlingError
 import com.nicos.ships.utils.generic_classes.Resource
