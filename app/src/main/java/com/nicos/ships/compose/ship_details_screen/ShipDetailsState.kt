@@ -1,6 +1,6 @@
 package com.nicos.ships.compose.ship_details_screen
 
-import com.nicos.ships.domain.models.ShipDetailsUI
+import com.nicos.ships.compose.ship_details_screen.ShipDetailsUI
 
 data class ShipDetailsState(
     val shipDetailsUI: ShipDetailsUI? = null,

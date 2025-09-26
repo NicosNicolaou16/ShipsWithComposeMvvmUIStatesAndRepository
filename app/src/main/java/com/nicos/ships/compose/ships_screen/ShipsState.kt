@@ -1,6 +1,6 @@
 package com.nicos.ships.compose.ships_screen
 
-import com.nicos.ships.domain.models.ShipListUI
+import com.nicos.ships.compose.ships_screen.ShipListUI
 
 data class ShipsState(
     val shipsMutableList: MutableList<ShipListUI>? = null,
