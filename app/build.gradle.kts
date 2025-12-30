@@ -73,7 +73,7 @@ val materialDesignVersion by extra("1.13.0")
 val coilVersion by extra("2.7.0")
 val hiltVersion by extra("2.57.2")
 val hiltCompilerVersion by extra("1.3.0")
-val composeNavigationVersion by extra("2.9.5")
+val composeNavigationVersion by extra("2.9.6")
 val composeHiltNavigationVersion by extra("1.3.0")
 
 dependencies {
