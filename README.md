@@ -56,3 +56,14 @@ This project was built by combining knowledge and techniques from various excell
 -   [Android Architecture - UI Layer State Production](https://developer.android.com/topic/architecture/ui-layer/state-production)
 -   [Official Android Architecture Samples](https://github.com/android/architecture-samples)
 -   [Google's Sunflower Sample App](https://github.com/android/sunflower)
+
+## ⭐ Stargazers
+
+If you enjoy this project, please give it a star!
+Check out all the stargazers
+here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/ShipsWithComposeMvvmUIStatesAndRepository/stargazers)
+
+
+## 🙏 Support & Contributions
+
+This library is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
