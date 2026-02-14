@@ -114,8 +114,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
-    // Multidex
-    implementation("androidx.multidex:multidex:$multidexVersion")
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
