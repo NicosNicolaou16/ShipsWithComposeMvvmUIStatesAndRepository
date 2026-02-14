@@ -91,36 +91,36 @@ dependencies {
     implementation("androidx.appcompat:appcompat:$appCompatVersion")
     implementation("androidx.core:core-ktx:$coreKtxVersion")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion")
-    //View Model KTX and LiveData and Live Cycle
+    // View Model KTX and LiveData and Live Cycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     //noinspection LifecycleAnnotationProcessorWithJava8
     ksp("androidx.lifecycle:lifecycle-compiler:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
-    //Room Database
+    // Room Database
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-    //Retrofit request
+    // Retrofit request
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion")
-    //Coil load Image
+    // Coil load Image
     implementation("io.coil-kt:coil-compose:$coilVersion")
-    //Coroutines
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
-    //Materials
+    // Materials
     implementation("com.google.android.material:material:$materialDesignVersion")
-    //Hilt
+    // Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     ksp("com.google.dagger:hilt-compiler:$hiltVersion")
     ksp("androidx.hilt:hilt-compiler:$hiltCompilerVersion")
-    //Multidex
+    // Multidex
     implementation("androidx.multidex:multidex:$multidexVersion")
-    //Testing
+    // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
-    //Compose
+    // Compose
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleAndLiveDataCompilerAndViewModelKTXVersion")
     implementation(platform("androidx.compose:compose-bom:2026.02.00"))
