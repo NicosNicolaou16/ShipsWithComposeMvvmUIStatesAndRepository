@@ -35,7 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
@@ -44,8 +44,6 @@ import com.nick.samplecomposewithhiltandroom.compose.generic_compose_views.Custo
 import com.nicos.ships.R
 import com.nicos.ships.compose.generic_compose_views.ShowDialog
 import com.nicos.ships.compose.generic_compose_views.StartDefaultLoader
-import com.nicos.ships.data.room_database.ships.ShipsEntity
-import com.nicos.ships.compose.ship_details_screen.ShipDetailsUI
 import com.nicos.ships.utils.extensions.getProgressDrawable
 import kotlinx.coroutines.Dispatchers
 
