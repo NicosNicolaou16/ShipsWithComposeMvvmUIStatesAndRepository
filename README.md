@@ -38,8 +38,8 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 
 -   **Target SDK:** `36`
 -   **Minimum SDK:** `29`
--   **Kotlin Version:** `2.3.0`
--   **Gradle Version:** `8.13.2`
+-   **Kotlin Version:** `2.3.10`
+-   **Gradle Version:** `9.0.1`
 
 ## 🛰️ Data Source
 
